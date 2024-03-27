@@ -1,15 +1,13 @@
 import React from 'react';
 
-const ProductCard = () => {
+const ProductCard = ({ item }) => {
   return (
     <div>
-      <img
-        src="https://static.zara.net/assets/public/2be9/09e1/5f5d4eabb651/0e28ffa32dc4/02893139712-015-p/02893139712-015-p.jpg?ts=1709742181552&w=1360"
-        alt=""
-      />
-      <div>벨티드 코드</div>
-      <div>$100</div>
-      <div>신제품</div>
+      <img src={item?.img} alt="" width={250} />
+      <div>{item?.choice === true ? 'concious choice' : ''}</div>
+      <div>{item?.title}</div>
+      <div>{item?.price}</div>
+      <div>{item?.new === true ? '신제품' : ''}</div>
     </div>
   );
 };

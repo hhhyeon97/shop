@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import ProductCard from '../component/ProductCard';
+import { Container, Row, Col } from 'react-bootstrap';
 
 const ProductAll = () => {
   const [productList, setProductList] = useState([]);
@@ -7,15 +8,25 @@ const ProductAll = () => {
     let url = 'http://localhost:5000/products';
     let response = await fetch(url);
     let data = await response.json();
+    setProductList(data); // 데이터를 받아와서 productList 상태를 업데이트
     console.log('data', data);
   };
+
   useEffect(() => {
     getProducts();
   }, []);
 
   return (
     <div>
-      <ProductCard />
+      <Container>
+        <Row>
+          {productList.map((menu) => (
+            <Col lg={3}>
+              <ProductCard item={menu} />
+            </Col>
+          ))}
+        </Row>
+      </Container>
     </div>
   );
 };

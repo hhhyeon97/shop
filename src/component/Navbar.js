@@ -18,8 +18,8 @@ const Navbar = () => {
     <div>
       <div>
         <div className="login-btn">
-          <FontAwesomeIcon icon={faUser} />
-          <div>로그인</div>
+          <FontAwesomeIcon icon={faUser} id="loginIcon" />
+          <span id="login">로그인</span>
         </div>
       </div>
       <div className="nav-section">
@@ -33,7 +33,11 @@ const Navbar = () => {
         </ul>
         <div className="search-area">
           <FontAwesomeIcon icon={faSearch} id="searchIcon" />
-          <input id="searchInput" type="text" />
+          <input
+            id="searchInput"
+            type="text"
+            placeholder="상품을 검색해보아요 : )"
+          />
         </div>
       </div>
     </div>
