@@ -7,7 +7,9 @@ import Footer from '../component/Footer';
 const ProductAll = () => {
   const [productList, setProductList] = useState([]);
   const [query, setQuery] = useSearchParams();
+  const [loading, setLoading] = useState(true);
   const getProducts = async () => {
+    setLoading(true); // 로딩 상태 설정
     let searchQuery = query.get('q') || '';
     //console.log('쿼리값은?', searchQuery);
     let url = `https://my-json-server.typicode.com/hhhyeon97/shop/products?q=${searchQuery}`;
@@ -15,6 +17,7 @@ const ProductAll = () => {
     let data = await response.json();
     setProductList(data); // 데이터를 받아와서 productList 상태를 업데이트
     //console.log('data', data);
+    setLoading(false); // 로딩 상태 해제
   };
 
   // useEffect 의존성배열에 값이 없으면
@@ -30,13 +33,19 @@ const ProductAll = () => {
   return (
     <div>
       <Container>
-        <Row>
-          {productList.map((menu, index) => (
-            <Col lg={3} key={index} className="my-3">
-              <ProductCard item={menu} />
-            </Col>
-          ))}
-        </Row>
+        {loading ? (
+          <p className="loading-wrap">Loading...</p>
+        ) : productList.length ? (
+          <Row>
+            {productList.map((menu, index) => (
+              <Col lg={3} key={index} className="my-3">
+                <ProductCard item={menu} />
+              </Col>
+            ))}
+          </Row>
+        ) : (
+          <h4 className="no-result">일치하는 검색어가 없습니다.</h4>
+        )}
       </Container>
       <Footer />
     </div>

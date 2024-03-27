@@ -4,7 +4,7 @@
   margin: 30px 50px;
   font-family: 'Noto Sans KR', sans-serif;
 }
-#loginIcon {
+.log-icon {
   position: relative;
   top: 4px;
   margin-right: 10px;
@@ -92,4 +92,34 @@
   border-top: 2px solid rgb(238, 238, 238);
   padding: 20px;
   font-family: 'Noto Sans KR', sans-serif;
+  bottom: 0;
+}
+
+.no-result {
+  text-align: center;
+  margin-top: 25px;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+.loading-wrap {
+  text-align: center;
+  font-size: 25px;
+}
+
+.choice-text {
+  font-size: 13px;
+}
+.new-text {
+  font-size: 15px;
+}
+
+.pro-title {
+  font-size: 18px;
+  font-weight: bold;
+  font-family: 'Noto Sans KR', sans-serif;
+}
+
+.login-title {
+  text-align: center;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-top: 10px;
 }

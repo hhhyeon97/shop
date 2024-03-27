@@ -1,29 +1,33 @@
 import React from 'react';
-import { Form, Button, Container } from 'react-bootstrap';
+import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 
 const Login = ({ setAuthenticate }) => {
   const navigate = useNavigate();
   const loginUser = (event) => {
     event.preventDefault();
-    console.log('login user function issue');
+    //console.log('login user function issue');
     setAuthenticate(true);
     navigate('/');
   };
 
   return (
-    <Container>
-      <h2>LOGIN</h2>
+    <Container className="d-flex justify-content-center align-items-center mt-5">
       <Form onSubmit={(event) => loginUser(event)}>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
-          <Form.Label>ID</Form.Label>
-          <Form.Control type="id" placeholder="Enter ID" />
-        </Form.Group>
-
-        <Form.Group className="mb-3" controlId="formBasicPassword">
-          <Form.Label>Password</Form.Label>
-          <Form.Control type="password" placeholder="Password" />
-        </Form.Group>
+        <Row className="mb-3">
+          <Col xs={12}>
+            <Form.Group controlId="formBasicEmail">
+              <Form.Label>ID</Form.Label>
+              <Form.Control type="id" placeholder="Enter ID" />
+            </Form.Group>
+          </Col>
+          <Col xs={12}>
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control type="password" placeholder="Password" />
+            </Form.Group>
+          </Col>
+        </Row>
         <Form.Group className="mb-3" controlId="formBasicCheckbox">
           <Form.Check type="checkbox" label="Check me out" />
         </Form.Group>

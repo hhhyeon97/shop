@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faUser } from '@fortawesome/free-regular-svg-icons';
+import { faUser as solidUser } from '@fortawesome/free-solid-svg-icons';
+import { faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
@@ -50,7 +51,11 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
     <div>
       <div>
         <div className="login-btn">
-          <FontAwesomeIcon icon={faUser} id="loginIcon" />
+          {authenticate ? (
+            <FontAwesomeIcon icon={solidUser} className="log-icon" />
+          ) : (
+            <FontAwesomeIcon icon={regularUser} className="log-icon" />
+          )}
           <span id="login" onClick={authenticate ? handleLogout : goToLogin}>
             {authenticate === false ? '로그인' : '로그아웃'}
           </span>
