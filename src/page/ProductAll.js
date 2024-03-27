@@ -5,7 +5,7 @@ import { Container, Row, Col } from 'react-bootstrap';
 const ProductAll = () => {
   const [productList, setProductList] = useState([]);
   const getProducts = async () => {
-    let url = 'http://localhost:5000/products';
+    let url = 'https://my-json-server.typicode.com/hhhyeon97/shop/products';
     let response = await fetch(url);
     let data = await response.json();
     setProductList(data); // 데이터를 받아와서 productList 상태를 업데이트
