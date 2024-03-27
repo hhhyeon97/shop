@@ -7,7 +7,7 @@ const ProductDetail = () => {
   //api 데이터를 state에 담기
   const [product, setProduct] = useState(null);
   const getProductDetail = async () => {
-    let url = `http://localhost:5000/products/${id}`;
+    let url = `https://my-json-server.typicode.com/hhhyeon97/shop/products/${id}`;
     let response = await fetch(url);
     let data = await response.json();
     // console.log('detail page data', data);
@@ -21,7 +21,7 @@ const ProductDetail = () => {
     <Container>
       <Row>
         <Col className="product-img">
-          <img src={product?.img} width="300" />
+          <img src={product?.img} width="300" alt="" />
         </Col>
         <Col>
           <div>{product?.title}</div>

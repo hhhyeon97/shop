@@ -22,8 +22,21 @@ const Navbar = () => {
   const goToLogin = () => {
     navigate('/login');
   };
+  // 메인페이지로 이동
   const goToHome = () => {
     navigate('/');
+  };
+
+  const search = (event) => {
+    // console.log('key press');
+    if (event.key === 'Enter') {
+      //console.log('we click this key', event.key);
+      // 입력한 검색어를 읽어와서 url을 바꿔주자 !
+      let keyword = event.target.value;
+      // console.log('keyword', keyword);
+
+      navigate(`/?q=${keyword}`);
+    }
   };
 
   return (
@@ -56,8 +69,10 @@ const Navbar = () => {
           <input
             id="searchInput"
             type="text"
+            onKeyPress={(event) => search(event)}
             placeholder="상품을 검색해보아요 : )"
           />
+          {/*모든 이벤트 리스너는 이벤트를 매개변수로 넘겨준다.*/}
         </div>
       </div>
     </div>
