@@ -54,3 +54,23 @@
 #searchInput:focus {
   outline: none;
 }
+
+.product-card {
+  transition: transform 0.3s ease;
+}
+
+.product-card:hover {
+  transform: scale(1.05); /*1.05배로 확대됨 */
+}
+
+#productImg,
+#productName:hover {
+  cursor: pointer;
+}
+#productName:hover {
+  text-decoration: underline;
+}
+
+#logo:hover {
+  cursor: pointer;
+}

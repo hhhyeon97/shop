@@ -2,11 +2,11 @@ import React from 'react';
 
 const ProductCard = ({ item }) => {
   return (
-    <div>
-      <img src={item?.img} alt="" width={250} />
+    <div className="product-card">
+      <img src={item?.img} alt="" width={250} id="productImg" />
       <div>{item?.choice === true ? 'concious choice' : ''}</div>
-      <div>{item?.title}</div>
-      <div>{item?.price}</div>
+      <div id="productName">{item?.title}</div>
+      <div>{item?.price}원</div>
       <div>{item?.new === true ? '신제품' : ''}</div>
     </div>
   );
