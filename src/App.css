@@ -84,3 +84,12 @@
   display: flex;
   justify-content: flex-end;
 }
+
+.footer-area {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-top: 2px solid rgb(238, 238, 238);
+  padding: 20px;
+  font-family: 'Noto Sans KR', sans-serif;
+}

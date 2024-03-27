@@ -12,12 +12,12 @@ function App() {
   // 사용자 로그인 유무 가정하는 상태
   const [authenticate, setAuthenticate] = useState(false);
   useEffect(() => {
-    console.log('aaa', authenticate);
+    //console.log('aaa', authenticate);
   }, [authenticate]);
 
   return (
     <div>
-      <Navbar />
+      <Navbar authenticate={authenticate} setAuthenticate={setAuthenticate} />
       <Routes>
         <Route path="/" element={<ProductAll />} />
         <Route

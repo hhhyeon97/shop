@@ -10,13 +10,14 @@ const Login = ({ setAuthenticate }) => {
     setAuthenticate(true);
     navigate('/');
   };
+
   return (
     <Container>
       <h2>LOGIN</h2>
       <Form onSubmit={(event) => loginUser(event)}>
         <Form.Group className="mb-3" controlId="formBasicEmail">
           <Form.Label>ID</Form.Label>
-          <Form.Control type="email" placeholder="Enter ID" />
+          <Form.Control type="id" placeholder="Enter ID" />
         </Form.Group>
 
         <Form.Group className="mb-3" controlId="formBasicPassword">

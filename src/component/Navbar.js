@@ -4,7 +4,7 @@ import { faUser } from '@fortawesome/free-regular-svg-icons';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
-const Navbar = () => {
+const Navbar = ({ authenticate, setAuthenticate }) => {
   // 메뉴바 리스트
   const menuList = [
     '여성',
@@ -39,13 +39,20 @@ const Navbar = () => {
     }
   };
 
+  // 로그아웃 처리
+  const handleLogout = () => {
+    setAuthenticate(false);
+    alert('로그아웃 되었습니다!');
+    navigate('/');
+  };
+
   return (
     <div>
       <div>
         <div className="login-btn">
           <FontAwesomeIcon icon={faUser} id="loginIcon" />
-          <span id="login" onClick={goToLogin}>
-            로그인
+          <span id="login" onClick={authenticate ? handleLogout : goToLogin}>
+            {authenticate === false ? '로그인' : '로그아웃'}
           </span>
         </div>
       </div>
