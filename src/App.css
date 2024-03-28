@@ -21,18 +21,18 @@
   cursor: pointer;
   color: rgb(82, 142, 233);
 }
-.menu-list {
+#menu-list {
   display: flex;
   list-style-type: none;
   margin: 20px auto;
   font-family: 'Noto Sans KR', sans-serif;
 }
-.menu-list li {
+#menu-list li {
   padding: 10px;
   transition: 0.3s ease-in-out;
   border-bottom: 2px solid white;
 }
-.menu-list li:hover {
+#menu-list li:hover {
   color: rgb(82, 142, 233);
   border-bottom: 2px solid rgb(54, 54, 54);
   cursor: pointer;
@@ -176,7 +176,7 @@
 }
 
 @media screen and (max-width: 768px) {
-  .menu-list {
+  #menu-list {
     display: none;
   }
   #menuToggle {
@@ -187,6 +187,44 @@
     margin: 10px;
     font-size: 25px;
     cursor: pointer;
+    z-index: 1001;
+  }
+  .x-icon {
+    position: fixed;
+    top: 10px; /* 원하는 위치로 조정 */
+    right: 10px; /* 원하는 위치로 조정 */
+    font-size: 25px;
+    cursor: pointer;
+    color: rgb(0, 0, 0); /* 아이콘 색상 설정 */
+    z-index: 1001; /* 다른 요소 위에 표시되도록 설정 */
+  }
+  .side-menu-area {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 100%;
+    transition: transform 0.3s ease;
+    z-index: 1000;
+    font-family: 'Noto Sans KR', sans-serif;
+    background-color: rgb(205, 231, 255);
+  }
+
+  .side-menu-list {
+    margin: 0;
+    padding: 20px 10px;
+    list-style-type: none;
+  }
+
+  .side-menu-list li {
+    margin-bottom: 10px;
+    font-size: 18px;
+    cursor: pointer;
+    transition: color 0.3s ease;
+  }
+
+  .side-menu-list li:hover {
+    color: rgb(71, 116, 199);
   }
 }
 

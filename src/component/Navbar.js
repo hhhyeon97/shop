@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser as solidUser } from '@fortawesome/free-solid-svg-icons';
 import { faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
-import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
+  const [showMenu, setShowMenu] = useState(false); // 사이드바 보이기/숨기기 상태 추가
   // 메뉴바 리스트
   const menuList = [
     '여성',
@@ -67,8 +68,24 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
             {authenticate === false ? '로그인' : '로그아웃'}
           </span>
         </div>
-        <FontAwesomeIcon icon={faBars} id="menuToggle" />
+        {/* 아이콘 클릭 시 showMenu 상태 토글 */}
+        <FontAwesomeIcon
+          icon={showMenu ? faTimes : faBars}
+          id="menuToggle"
+          onClick={() => setShowMenu(!showMenu)}
+        />
       </div>
+
+      {/* showMenu 상태에 따라 사이드바 메뉴를 보여주거나 숨김 */}
+      {showMenu && (
+        <div className="side-menu-area">
+          <ul className="side-menu-list">
+            {menuList.map((menu, index) => (
+              <li key={index}>{menu}</li>
+            ))}
+          </ul>
+        </div>
+      )}
 
       <div className="search-area">
         <FontAwesomeIcon icon={faSearch} id="searchIcon" />
@@ -82,7 +99,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
       </div>
 
       <div className="menu-area">
-        <ul className="menu-list">
+        <ul id="menu-list" className="side-menu-list">
           {menuList.map((menu) => (
             <li>{menu}</li>
           ))}
