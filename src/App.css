@@ -153,7 +153,7 @@
   margin-top: 10px;
 }
 
-#menuToggle {
+.menu-icon {
   display: none;
 }
 
@@ -179,7 +179,7 @@
   #menu-list {
     display: none;
   }
-  #menuToggle {
+  .menu-icon {
     display: block;
     position: absolute;
     left: 20px;
@@ -189,14 +189,17 @@
     cursor: pointer;
     z-index: 1001;
   }
-  .x-icon {
+  .close-icon {
     position: fixed;
-    top: 10px; /* 원하는 위치로 조정 */
-    right: 10px; /* 원하는 위치로 조정 */
+    top: 8px;
+    right: 15px;
     font-size: 25px;
     cursor: pointer;
-    color: rgb(0, 0, 0); /* 아이콘 색상 설정 */
-    z-index: 1001; /* 다른 요소 위에 표시되도록 설정 */
+    color: rgb(235, 246, 255);
+    z-index: 1001;
+    background-color: rgb(163, 200, 255);
+    border-radius: 50%;
+    padding: 8px 10px;
   }
   .side-menu-area {
     position: fixed;
@@ -204,10 +207,11 @@
     left: 0;
     width: 200px;
     height: 100%;
-    transition: transform 0.3s ease;
     z-index: 1000;
     font-family: 'Noto Sans KR', sans-serif;
-    background-color: rgb(205, 231, 255);
+    background-color: rgb(255, 255, 255);
+    overflow-x: hidden;
+    transition: 0.5s;
   }
 
   .side-menu-list {
@@ -217,14 +221,14 @@
   }
 
   .side-menu-list li {
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-size: 18px;
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: background-color 0.3s ease; /* 배경색 전환에 트랜지션 효과 추가 */
   }
 
   .side-menu-list li:hover {
-    color: rgb(71, 116, 199);
+    color: rgb(83, 127, 221);
   }
 }
 

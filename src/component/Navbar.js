@@ -71,7 +71,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         {/* 아이콘 클릭 시 showMenu 상태 토글 */}
         <FontAwesomeIcon
           icon={showMenu ? faTimes : faBars}
-          id="menuToggle"
+          className={showMenu ? 'close-icon' : 'menu-icon'}
           onClick={() => setShowMenu(!showMenu)}
         />
       </div>
