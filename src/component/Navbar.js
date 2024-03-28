@@ -93,7 +93,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           id="searchInput"
           type="text"
           onKeyPress={(event) => search(event)}
-          placeholder="상품을 검색해보아요 : )"
+          placeholder="제품 검색"
         />
         {/*모든 이벤트 리스너는 이벤트를 매개변수로 넘겨준다.*/}
       </div>
