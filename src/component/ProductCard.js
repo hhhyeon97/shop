@@ -10,7 +10,7 @@ const ProductCard = ({ item }) => {
     <div className="product-card" onClick={showDetail}>
       <img src={item?.img} alt="" width={250} id="productImg" />
       <div className="choice-text">
-        {item?.choice === true ? 'concious choice' : ''}
+        {item?.choice === true ? 'Concious choice' : ''}
       </div>
       <div id="productName">{item?.title}</div>
       <div>{item?.price.toLocaleString('ko-KR')}원</div>

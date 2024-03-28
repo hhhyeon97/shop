@@ -16,7 +16,7 @@ const Login = ({ setAuthenticate }) => {
       <Form onSubmit={(event) => loginUser(event)}>
         <Row className="mb-3">
           <Col xs={12}>
-            <Form.Group controlId="formBasicEmail">
+            <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>ID</Form.Label>
               <Form.Control type="id" placeholder="Enter ID" />
             </Form.Group>
@@ -28,9 +28,6 @@ const Login = ({ setAuthenticate }) => {
             </Form.Group>
           </Col>
         </Row>
-        <Form.Group className="mb-3" controlId="formBasicCheckbox">
-          <Form.Check type="checkbox" label="Check me out" />
-        </Form.Group>
         <Button variant="dark" type="submit">
           로그인
         </Button>

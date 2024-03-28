@@ -1,36 +1,41 @@
-.login-btn {
-  display: flex;
-  justify-content: flex-end;
-  margin: 30px 50px;
-  font-family: 'Noto Sans KR', sans-serif;
-}
-.log-icon {
-  position: relative;
-  top: 4px;
-  margin-right: 10px;
-}
-#login:hover {
-  text-decoration: underline;
-  cursor: pointer;
-}
 .nav-section {
   display: flex;
   justify-content: center;
+  position: relative;
+  top: 40px;
 }
 
+.right-sec {
+  position: absolute;
+  right: 30px;
+  top: 5px;
+  font-family: 'Noto Sans KR', sans-serif;
+  font-size: 19px;
+}
+.log-con {
+  margin-right: 10px;
+}
+
+#login:hover {
+  text-decoration: underline;
+  cursor: pointer;
+  color: rgb(82, 142, 233);
+}
 .menu-list {
   display: flex;
   list-style-type: none;
-  margin: 15px auto;
+  margin: 20px auto;
   font-family: 'Noto Sans KR', sans-serif;
 }
 .menu-list li {
   padding: 10px;
+  transition: 0.3s ease-in-out;
+  border-bottom: 2px solid white;
 }
 .menu-list li:hover {
-  text-decoration: underline;
-  cursor: pointer;
   color: rgb(82, 142, 233);
+  border-bottom: 2px solid rgb(54, 54, 54);
+  cursor: pointer;
 }
 
 .menu-area {
@@ -39,21 +44,24 @@
 }
 
 .search-area {
-  position: absolute;
-  right: 10px;
   font-family: 'Noto Sans KR', sans-serif;
-  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
 }
 #searchIcon {
   position: relative;
   left: 16px;
+  top: 6px;
 }
 #searchInput {
   border: none;
   border-bottom: 2px solid black;
   padding-bottom: 4px;
   background-color: transparent;
-  padding-left: 25px;
+  padding-left: 30px;
+  padding-bottom: 10px;
+  width: 55%;
 }
 #searchInput:focus {
   outline: none;
@@ -73,9 +81,12 @@
   cursor: pointer;
 }
 #productName:hover {
-  text-decoration: underline;
+  color: rgb(71, 116, 199);
 }
 
+#logo {
+  margin-bottom: 10px;
+}
 #logo:hover {
   cursor: pointer;
 }
@@ -98,7 +109,7 @@
 .no-result {
   text-align: center;
   margin-top: 25px;
-  font-family: 'Noto Sans KR', sans-serif;
+  font-family: sans-serif;
 }
 .loading-wrap {
   text-align: center;
@@ -112,6 +123,24 @@
   font-size: 15px;
 }
 
+.new-text1 {
+  display: inline;
+  font-size: 13px;
+  color: white;
+}
+.new-text1 span {
+  margin-right: 5px;
+  background-color: rgb(236, 130, 44);
+  border-radius: 6px;
+  padding: 3px;
+}
+.new-text1 .emp1:empty {
+  display: none;
+}
+.new-text1 .emp2:empty {
+  display: none;
+}
+
 .pro-title {
   font-size: 18px;
   font-weight: bold;
@@ -122,4 +151,54 @@
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
   margin-top: 10px;
+}
+
+#menuToggle {
+  display: none;
+}
+
+#search-text {
+  font-family: 'Noto Sans KR', sans-serif;
+  text-align: center;
+  margin-top: 10px;
+}
+#color-text {
+  color: rgb(236, 130, 44);
+  font-weight: bold;
+}
+
+@media (max-width: 991px) {
+  .product-col {
+    flex: 0 0 50%; /* 태블릿 화면일 때 한 줄에 2개씩 */
+    display: flex;
+    justify-content: center;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .menu-list {
+    display: none;
+  }
+  #menuToggle {
+    display: block;
+    position: absolute;
+    left: 20px;
+    top: -5px;
+    margin: 10px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+}
+
+@media (max-width: 400px) {
+  .product-col {
+    flex: 0 0 100%; /* 모바일 화면일 때 한 줄에 1개씩 */
+    display: flex;
+    justify-content: center;
+  }
+  #searchInput {
+    width: 60%;
+    position: relative;
+    right: 8px;
+  }
 }

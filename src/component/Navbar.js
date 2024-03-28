@@ -2,7 +2,7 @@ import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser as solidUser } from '@fortawesome/free-solid-svg-icons';
 import { faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
-import { faSearch } from '@fortawesome/free-solid-svg-icons';
+import { faSearch, faBars } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 
 const Navbar = ({ authenticate, setAuthenticate }) => {
@@ -49,18 +49,6 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
   return (
     <div>
-      <div>
-        <div className="login-btn">
-          {authenticate ? (
-            <FontAwesomeIcon icon={solidUser} className="log-icon" />
-          ) : (
-            <FontAwesomeIcon icon={regularUser} className="log-icon" />
-          )}
-          <span id="login" onClick={authenticate ? handleLogout : goToLogin}>
-            {authenticate === false ? '로그인' : '로그아웃'}
-          </span>
-        </div>
-      </div>
       <div className="nav-section">
         <img
           id="logo"
@@ -69,23 +57,36 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
           alt=""
           onClick={goToHome}
         />
+        <div className="right-sec">
+          {authenticate ? (
+            <FontAwesomeIcon icon={solidUser} className="log-con" />
+          ) : (
+            <FontAwesomeIcon icon={regularUser} className="log-con" />
+          )}
+          <span id="login" onClick={authenticate ? handleLogout : goToLogin}>
+            {authenticate === false ? '로그인' : '로그아웃'}
+          </span>
+        </div>
+        <FontAwesomeIcon icon={faBars} id="menuToggle" />
       </div>
+
+      <div className="search-area">
+        <FontAwesomeIcon icon={faSearch} id="searchIcon" />
+        <input
+          id="searchInput"
+          type="text"
+          onKeyPress={(event) => search(event)}
+          placeholder="상품을 검색해보아요 : )"
+        />
+        {/*모든 이벤트 리스너는 이벤트를 매개변수로 넘겨준다.*/}
+      </div>
+
       <div className="menu-area">
         <ul className="menu-list">
           {menuList.map((menu) => (
             <li>{menu}</li>
           ))}
         </ul>
-        <div className="search-area">
-          <FontAwesomeIcon icon={faSearch} id="searchIcon" />
-          <input
-            id="searchInput"
-            type="text"
-            onKeyPress={(event) => search(event)}
-            placeholder="상품을 검색해보아요 : )"
-          />
-          {/*모든 이벤트 리스너는 이벤트를 매개변수로 넘겨준다.*/}
-        </div>
       </div>
     </div>
   );

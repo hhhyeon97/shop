@@ -36,13 +36,21 @@ const ProductAll = () => {
         {loading ? (
           <p className="loading-wrap">Loading...</p>
         ) : productList.length ? (
-          <Row>
-            {productList.map((menu, index) => (
-              <Col lg={3} key={index} className="my-3">
-                <ProductCard item={menu} />
-              </Col>
-            ))}
-          </Row>
+          <div>
+            {query && (
+              <p id="search-text">
+                <span id="color-text">{productList.length}</span>개의 검색결과가
+                있습니다.
+              </p>
+            )}
+            <Row className="justify-content-center">
+              {productList.map((menu, index) => (
+                <Col lg={3} key={index} className="my-3 product-col">
+                  <ProductCard item={menu} />
+                </Col>
+              ))}
+            </Row>
+          </div>
         ) : (
           <h4 className="no-result">일치하는 검색어가 없습니다.</h4>
         )}

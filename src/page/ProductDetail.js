@@ -31,7 +31,14 @@ const ProductDetail = () => {
           <img src={product?.img} width="300" alt="" />
         </Col>
         <Col>
-          <div className="mb-3 pro-title">{product?.title}</div>
+          <div className="mb-1 pro-title">{product?.title}</div>
+          <div className="mb-3 new-text1">
+            <span className="emp1">
+              {product?.choice === true ? 'Concious choice' : ''}
+            </span>
+            <span className="emp2">{product?.new === true ? 'New' : ''}</span>
+            {/* {product?.new === true && 'New'} */}
+          </div>
           <div className="mb-3">{product?.price.toLocaleString('ko-KR')}원</div>
           <div className="mb-3">
             {product?.size.map((size, index) => (
