@@ -25,8 +25,8 @@ const ProductDetail = () => {
   };
 
   return (
-    <Container>
-      <Row className="my-5">
+    <Container className="d-flex justify-content-center align-items-center mt-4">
+      <Row className="my-5 detail-mobile">
         <Col className="product-img">
           <img src={product?.img} width="300" alt="" />
         </Col>
@@ -53,7 +53,9 @@ const ProductDetail = () => {
             ))}
           </div>
           <div>
-            <Button variant="dark">구매하기</Button>
+            <Button variant="dark" className="buy-btn">
+              구매하기
+            </Button>
           </div>
         </Col>
       </Row>

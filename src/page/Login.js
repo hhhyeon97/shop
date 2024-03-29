@@ -12,8 +12,9 @@ const Login = ({ setAuthenticate }) => {
   };
 
   return (
-    <Container className="d-flex justify-content-center align-items-center mt-5">
+    <Container className="d-flex justify-content-center align-items-center mt-4">
       <Form onSubmit={(event) => loginUser(event)}>
+        <h3 className="login-title">LOGIN</h3>
         <Row className="mb-3">
           <Col xs={12}>
             <Form.Group className="mb-3" controlId="formBasicEmail">

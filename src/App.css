@@ -152,7 +152,7 @@
 .login-title {
   text-align: center;
   font-family: 'Noto Sans KR', sans-serif;
-  margin-top: 10px;
+  margin-bottom: 20px;
 }
 
 .menu-icon {
@@ -167,6 +167,10 @@
 #color-text {
   color: rgb(236, 130, 44);
   font-weight: bold;
+}
+
+.buy-btn {
+  width: 100%;
 }
 
 @media (max-width: 991px) {
@@ -232,6 +236,15 @@
   }
 }
 
+@media (max-width: 500px) {
+  .detail-mobile {
+    flex-direction: column;
+  }
+  #logo {
+    margin-top: -10px;
+  }
+}
+
 @media (max-width: 400px) {
   .product-col {
     flex: 0 0 100%; /* 모바일 화면일 때 한 줄에 1개씩 */
@@ -242,5 +255,16 @@
     width: 60%;
     position: relative;
     right: 8px;
+  }
+  .search-area {
+    margin-top: 60px;
+  }
+  .right-sec {
+    right: 25px;
+    top: 5px;
+    font-size: 15px;
+  }
+  .product-img img {
+    width: 200px;
   }
 }
