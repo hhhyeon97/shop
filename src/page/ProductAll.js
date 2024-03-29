@@ -49,7 +49,7 @@ const ProductAll = () => {
             </Row>
           </div>
         ) : (
-          <h4 className="no-result">일치하는 검색어가 없습니다.</h4>
+          <h4 className="no-result">일치하는 상품이 없습니다.</h4>
         )}
       </Container>
       <Footer />

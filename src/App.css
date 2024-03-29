@@ -117,12 +117,30 @@
   font-family: 'Noto Sans KR', sans-serif;
   margin-top: 20px;
 }
-
+.cho-new-area span {
+  margin-right: 5px;
+}
 .choice-text {
-  font-size: 13px;
+  display: inline;
+  font-size: 12px;
+  background-color: rgb(118, 158, 233);
+  color: white;
+  border-radius: 4px;
+  padding: 2px;
 }
 .new-text {
-  font-size: 15px;
+  display: inline;
+  font-size: 12px;
+  background-color: gray;
+  border-radius: 4px;
+  padding: 2px;
+  color: white;
+}
+.new-text:empty {
+  display: none;
+}
+.choice-text:empty {
+  display: none;
 }
 
 .new-text1 {

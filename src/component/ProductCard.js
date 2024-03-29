@@ -9,12 +9,14 @@ const ProductCard = ({ item }) => {
   return (
     <div className="product-card" onClick={showDetail}>
       <img src={item?.img} alt="" width={250} id="productImg" />
-      <div className="choice-text">
-        {item?.choice === true ? 'Concious choice' : ''}
+      <div className="cho-new-area">
+        <span className="choice-text">
+          {item?.choice === true ? 'Concious choice' : ''}
+        </span>
+        <span className="new-text">{item?.new === true ? '신제품' : ''}</span>
       </div>
       <div id="productName">{item?.title}</div>
       <div>{item?.price.toLocaleString('ko-KR')}원</div>
-      <div className="new-text">{item?.new === true ? '신제품' : ''}</div>
     </div>
   );
 };
