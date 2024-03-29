@@ -173,6 +173,10 @@
   width: 100%;
 }
 
+.side-menu-area {
+  display: none;
+}
+
 @media (max-width: 991px) {
   .product-col {
     flex: 0 0 50%; /* 태블릿 화면일 때 한 줄에 2개씩 */
@@ -208,17 +212,22 @@
     padding: 8px 10px;
   }
   .side-menu-area {
+    display: block;
     position: fixed;
     top: 0;
-    left: 0;
+    left: -200px; /* 처음에 왼쪽으로 숨겨둠 */
     width: 200px;
     height: 100%;
     font-family: 'Noto Sans KR', sans-serif;
     background-color: rgb(255, 255, 255);
     z-index: 1000;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: left 0.3s ease-in-out; /* left 속성에 대한 변화를 부드럽게 적용 */
   }
 
+  .side-menu-area.active {
+    left: 0;
+  }
   .side-menu-list {
     margin: 0;
     padding: 20px 10px;
@@ -242,6 +251,9 @@
   }
   #logo {
     margin-top: -10px;
+  }
+  .close-icon {
+    font-size: 20px;
   }
 }
 

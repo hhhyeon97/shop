@@ -76,16 +76,14 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
         />
       </div>
 
-      {/* showMenu 상태에 따라 사이드바 메뉴를 보여주거나 숨김 */}
-      {showMenu && (
-        <div className="side-menu-area">
-          <ul className="side-menu-list">
-            {menuList.map((menu, index) => (
-              <li key={index}>{menu}</li>
-            ))}
-          </ul>
-        </div>
-      )}
+      {/*사이드 메뉴바에도 showMenu 상태에 따라 .active 클래스 추가/제거 */}
+      <div className={`side-menu-area ${showMenu ? 'active' : ''}`}>
+        <ul className="side-menu-list">
+          {menuList.map((menu, index) => (
+            <li key={index}>{menu}</li>
+          ))}
+        </ul>
+      </div>
 
       <div className="search-area">
         <FontAwesomeIcon icon={faSearch} id="searchIcon" />
