@@ -3,20 +3,18 @@ import ProductCard from '../component/ProductCard';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 import Footer from '../component/Footer';
-
+import { productAction } from '../redux/actions/productAction';
+import { useDispatch, useSelector } from 'react-redux';
 const ProductAll = () => {
-  const [productList, setProductList] = useState([]);
+  const productList = useSelector((state) => state.productList);
   const [query, setQuery] = useSearchParams();
   const [loading, setLoading] = useState(true);
-  const getProducts = async () => {
+  const dispatch = useDispatch();
+  // 상품보여주기 함수
+  const getProducts = () => {
     setLoading(true); // 로딩 상태 설정
     let searchQuery = query.get('q') || '';
-    //console.log('쿼리값은?', searchQuery);
-    let url = `https://my-json-server.typicode.com/hhhyeon97/shop/products?q=${searchQuery}`;
-    let response = await fetch(url);
-    let data = await response.json();
-    setProductList(data); // 데이터를 받아와서 productList 상태를 업데이트
-    //console.log('data', data);
+    dispatch(productAction.getProducts(searchQuery));
     setLoading(false); // 로딩 상태 해제
   };
 
