@@ -4,8 +4,11 @@ import { faUser as solidUser } from '@fortawesome/free-solid-svg-icons';
 import { faUser as regularUser } from '@fortawesome/free-regular-svg-icons';
 import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
-
-const Navbar = ({ authenticate, setAuthenticate }) => {
+import { useSelector, useDispatch } from 'react-redux';
+import { authenticateAction } from '../redux/actions/authenticateAction';
+const Navbar = () => {
+  const authenticate = useSelector((state) => state.auth.authenticate);
+  const dispatch = useDispatch();
   const [showMenu, setShowMenu] = useState(false); // 사이드바 보이기/숨기기 상태 추가
   // 메뉴바 리스트
   const menuList = [
@@ -43,7 +46,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
 
   // 로그아웃 처리
   const handleLogout = () => {
-    setAuthenticate(false);
+    dispatch(authenticateAction.logout());
     alert('로그아웃 되었습니다!');
     navigate('/');
   };
@@ -65,7 +68,7 @@ const Navbar = ({ authenticate, setAuthenticate }) => {
             <FontAwesomeIcon icon={regularUser} className="log-con" />
           )}
           <span id="login" onClick={authenticate ? handleLogout : goToLogin}>
-            {authenticate === false ? '로그인' : '로그아웃'}
+            {authenticate ? '로그아웃' : '로그인'}
           </span>
         </div>
         {/* 아이콘 클릭 시 showMenu 상태 토글 */}
