@@ -29,7 +29,7 @@ const Login = ({ setAuthenticate }) => {
                 type="id"
                 placeholder="Enter ID"
                 onChange={(event) => {
-                  setId(event.target.valueAsDate);
+                  setId(event.target.value);
                 }}
               />
             </Form.Group>

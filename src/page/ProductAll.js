@@ -11,7 +11,7 @@ const ProductAll = () => {
   const [loading, setLoading] = useState(true);
   const dispatch = useDispatch();
   // 상품보여주기 함수
-  const getProducts = () => {
+  const getProducts = async () => {
     setLoading(true); // 로딩 상태 설정
     let searchQuery = query.get('q') || '';
     dispatch(productAction.getProducts(searchQuery));
