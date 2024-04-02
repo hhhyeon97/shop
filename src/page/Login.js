@@ -1,13 +1,19 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
+import { UseDispatch, useDispatch } from 'react-redux';
+import { authenticateAction } from '../redux/actions/authenticateAction';
 
 const Login = ({ setAuthenticate }) => {
+  const [id, setId] = useState('');
+  const [pw, setPw] = useState('');
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const loginUser = (event) => {
     event.preventDefault();
     //console.log('login user function issue');
-    setAuthenticate(true);
+    dispatch(authenticateAction.login(id, pw));
+    //setAuthenticate(true);
     navigate('/');
   };
 
@@ -19,13 +25,25 @@ const Login = ({ setAuthenticate }) => {
           <Col xs={12}>
             <Form.Group className="mb-3" controlId="formBasicEmail">
               <Form.Label>ID</Form.Label>
-              <Form.Control type="id" placeholder="Enter ID" />
+              <Form.Control
+                type="id"
+                placeholder="Enter ID"
+                onChange={(event) => {
+                  setId(event.target.valueAsDate);
+                }}
+              />
             </Form.Group>
           </Col>
           <Col xs={12}>
             <Form.Group controlId="formBasicPassword">
               <Form.Label>Password</Form.Label>
-              <Form.Control type="password" placeholder="Password" />
+              <Form.Control
+                type="password"
+                placeholder="Password"
+                onChange={(event) => {
+                  setPw(event.target.value); // event.target.value로 수정
+                }}
+              />
             </Form.Group>
           </Col>
         </Row>
