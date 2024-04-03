@@ -21,7 +21,7 @@ export const fetchProducts = createAsyncThunk(
 );
 
 export const fetchProductDetail = createAsyncThunk(
-  'product/:id',
+  'detail',
   async (id, thunkApi) => {
     try {
       let url = `https://my-json-server.typicode.com/hhhyeon97/shop/products/${id}`;
@@ -54,11 +54,6 @@ export const fetchProductDetail = createAsyncThunk(
 const productSlice = createSlice({
   name: 'product',
   initialState,
-  reducers: {
-    getProductDetail(state, action) {
-      state.selectedItem = action.payload.data;
-    },
-  },
   extraReducers: (builder) => {
     builder
       .addCase(fetchProducts.pending, (state) => {
@@ -71,11 +66,23 @@ const productSlice = createSlice({
       .addCase(fetchProducts.rejected, (state, action) => {
         state.isLoading = false;
         state.error = action.payload;
+      })
+      .addCase(fetchProductDetail.pending, (state) => {
+        state.isLoading = true;
+      })
+      .addCase(fetchProductDetail.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.selectedItem = action.payload;
+      })
+      .addCase(fetchProductDetail.rejected, (state, action) => {
+        state.isLoading = false;
+        state.error = action.payload;
       });
   },
 });
 
 //console.log('productSlice', productSlice);
 
+// export const productDetailActions = productDetailSlice.actions;
 export const productActions = productSlice.actions;
 export default productSlice.reducer;
