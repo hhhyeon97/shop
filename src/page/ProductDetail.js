@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Container, Row, Col, Button } from 'react-bootstrap';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { productAction } from '../redux/actions/productAction';
+//import { productAction } from '../redux/actions/productAction';
+import { fetchProductDetail } from '../redux/reducer/productSlice';
 
 const ProductDetail = () => {
   let { id } = useParams();
@@ -19,7 +20,8 @@ const ProductDetail = () => {
     // let data = await response.json();
     // console.log('detail page data', data);
     //setProduct(data);
-    dispatch(productAction.getProductDetail(id));
+    // dispatch(productAction.getProductDetail(id));
+    dispatch(fetchProductDetail(id));
   };
   // api호출은 항상 useEffect에서 해주기
   useEffect(() => {

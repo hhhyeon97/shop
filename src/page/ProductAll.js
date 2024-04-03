@@ -3,8 +3,9 @@ import ProductCard from '../component/ProductCard';
 import { Container, Row, Col } from 'react-bootstrap';
 import { useSearchParams } from 'react-router-dom';
 import Footer from '../component/Footer';
-import { productAction } from '../redux/actions/productAction';
+//import { productAction } from '../redux/actions/productAction';
 import { useDispatch, useSelector } from 'react-redux';
+import { fetchProducts } from '../redux/reducer/productSlice';
 const ProductAll = () => {
   const productList = useSelector((state) => state.product.productList);
   const [query, setQuery] = useSearchParams();
@@ -14,7 +15,8 @@ const ProductAll = () => {
   const getProducts = async () => {
     setLoading(true); // 로딩 상태 설정
     let searchQuery = query.get('q') || '';
-    dispatch(productAction.getProducts(searchQuery));
+    // dispatch(productAction.getProducts(searchQuery));
+    dispatch(fetchProducts(searchQuery));
     setLoading(false); // 로딩 상태 해제
   };
 

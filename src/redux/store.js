@@ -1,11 +1,11 @@
-import { createStore, applyMiddleware } from 'redux';
-import { composeWithDevTools } from '@redux-devtools/extension';
-import { thunk } from 'redux-thunk';
-import rootReducer from './reducer/index';
+// import { createStore, applyMiddleware } from 'redux';
+// import { composeWithDevTools } from '@redux-devtools/extension';
+// import { thunk } from 'redux-thunk';
+// import rootReducer from './reducer/index';
 
 import { configureStore } from '@reduxjs/toolkit';
 import authenticateReducer from './reducer/authenticateReducer';
-import productReducer from './reducer/productReducer';
+import productReducer from './reducer/productSlice';
 
 // const store = createStore(
 //   rootReducer,
