@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
 import { UseDispatch, useDispatch } from 'react-redux';
-import { authenticateAction } from '../redux/actions/authenticateAction';
+import authenticateSlice from '../redux/reducer/authenticateSlice';
+//import { authenticateAction } from '../redux/actions/authenticateAction';
 
 const Login = ({ setAuthenticate }) => {
   const [id, setId] = useState('');
@@ -12,7 +13,7 @@ const Login = ({ setAuthenticate }) => {
   const loginUser = (event) => {
     event.preventDefault();
     //console.log('login user function issue');
-    dispatch(authenticateAction.login(id, pw));
+    //dispatch(authenticateAction.login(id, pw));
     //setAuthenticate(true);
     navigate('/');
   };
