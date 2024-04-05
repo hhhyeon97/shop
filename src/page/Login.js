@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Form, Button, Container, Row, Col } from 'react-bootstrap';
 import { useNavigate } from 'react-router-dom';
-import { UseDispatch, useDispatch } from 'react-redux';
-import authenticateSlice from '../redux/reducer/authenticateSlice';
+import { useDispatch } from 'react-redux';
+import { loginSuccess } from '../redux/reducer/authenticateSlice';
 //import { authenticateAction } from '../redux/actions/authenticateAction';
 
 const Login = ({ setAuthenticate }) => {
@@ -15,6 +15,7 @@ const Login = ({ setAuthenticate }) => {
     //console.log('login user function issue');
     //dispatch(authenticateAction.login(id, pw));
     //setAuthenticate(true);
+    dispatch(loginSuccess(id, pw));
     navigate('/');
   };
 
