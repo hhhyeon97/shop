@@ -6,7 +6,7 @@ import { faSearch, faBars, faTimes } from '@fortawesome/free-solid-svg-icons';
 import { useNavigate } from 'react-router-dom';
 import { useSelector, useDispatch } from 'react-redux';
 //import { authenticateAction } from '../redux/actions/authenticateAction';
-import { authenticateSlice } from '../redux/reducer/authenticateSlice';
+import { logoutSuccess } from '../redux/reducer/authenticateSlice';
 const Navbar = () => {
   const authenticate = useSelector((state) => state.auth.authenticate);
   const dispatch = useDispatch();
@@ -48,7 +48,7 @@ const Navbar = () => {
   // 로그아웃 처리
   const handleLogout = () => {
     //dispatch(authenticateAction.logout());
-    dispatch(authenticate);
+    dispatch(logoutSuccess());
     alert('로그아웃 되었습니다!');
     navigate('/');
   };
